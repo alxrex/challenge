@@ -1,0 +1,104 @@
+
+<div class="text-center">
+<h2>CryptoCurrency Dashboard</h2>
+</div>
+
+<div class="row">
+	
+	<div class="col-md-8 chart-container" style="position: relative;">
+		<canvas id="chart_area"></canvas>
+	</div>
+	
+	<div class="col-md-4">
+
+		<div class="row">
+			<div class="col-md-6 text-center">
+			<h3>Calculator</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<input type="text" ng-model="coin" ng-change="updateCalculator('coin');" />
+			</div>
+			
+			<div class="col-md-6">
+				<select ng-model="coinSel" ng-change="updateCalculator('crypto');">
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<input type="text" ng-model="crypto" ng-change="updateCalculator('crypto');" />
+			</div>
+			
+			<div class="col-md-6">
+				<select  ng-model="cryptoSel" ng-change="updateCalculator('crypto');">
+					<option value="BTC">BTC</option>
+					<option value="ETH">ETH</option>
+				</select>
+			</div>
+		</div>
+
+	</div>
+	
+</div>
+
+
+<div class="row">
+	
+	<div class="col-md-6">
+	<h3>1 BTC = {{currencys.BTC.USD}}</h3>
+	</div>
+	<div class="col-md-6">
+	<h3>1 ETH = {{currencys.ETH.USD}}</h3>
+	</div>
+
+</div>
+
+<div class="row">
+	
+	<div class="col-md-6">
+		<h4>Bitcoin - BTC</h4>
+		
+		<table class="table table-striped">
+		<tr>
+			<th>Time</th>
+			<th>USD</th>
+			<th>EUR</th>
+		</tr>
+
+		<tr ng-repeat="row in btc_history | orderBy:time: desc | limitTo:historyNumber">
+			<td>{{row.time | date : 'y-MM-dd HH:mm:ss' }}</td>
+			<td>{{row.usd}}</td>
+			<td>{{row.eur}}</td>
+		</tr>
+		</table>
+
+
+	</div>
+	
+	<div class="col-md-6">
+	<h4>Etherium - ETH</h4>
+
+		<table class="table table-striped">
+		<tr>
+			<th>Time</th>
+			<th>USD</th>
+			<th>EUR</th>
+			<th>BTC</th>
+		</tr>
+
+		<tr ng-repeat="row in eth_history  | orderBy:time: desc | limitTo:historyNumber">
+			<td>{{row.time | date : 'y-MM-dd HH:mm:ss' }}</td>
+			<td>{{row.usd}}</td>
+			<td>{{row.eur}}</td>
+			<td>{{row.btc}}</td>
+		</tr>
+		</table>
+
+	</div>
+
+</div>

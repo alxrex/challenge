@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CryptoCurrency Dashboard Challenge</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="https://getbootstrap.com/docs/3.3/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/3.3/examples/starter-template/starter-template.css" rel="stylesheet">
+
+<!-- Angular -->
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/angular-sanitize.min.js"></script>
+<script src="js/angular-filter.min.js"></script>
+<!-- ui-bootstrap-angular -->
+<script src="js/ui-bootstrap-tpls-0.11.2.min.js"></script>
+  <!--
+    IE8 support, see AngularJS Internet Explorer Compatibility http://docs.angularjs.org/guide/ie
+    For Firefox 3.6, you will also need to include jQuery and ECMAScript 5 shim
+  -->
+  <!--[if lt IE 9]>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+    <script>
+      document.createElement('ui-select');
+      document.createElement('ui-select-match');
+      document.createElement('ui-select-choices');
+    </script>
+  <![endif]-->
+
+
+<!-- Web App -->
+<script src="js/app/app_test.js?v=1"></script>
+<script src="js/app/c_app.js?v=1"></script>
+<script src="js/app/s_app.js?v=1"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+<style type="text/css">
+  input{
+    margin-bottom: 2em;
+  }
+</style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">CryptoCurrency</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="">Dashboard</a></li>
+            <!--<li><a href="#create">Create</a></li>-->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!--<div class="starter-template">
+        <h1>The CryptoCurrency</h1>
+        <p class="lead">Coins</p>
+      </div> -->
+
+      <!-- APP -->
+      <div class="row" ng-app="testApp">
+          <div ng-view></div>
+      </div>
+      <!-- /APP -->
+      
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+    window.chartColors = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)'
+};
+      
+
+      var config = {
+            type: 'line',
+            data: {
+                labels: [" "],
+                datasets: [{
+                    label: "Bitcoin",
+                    backgroundColor: window.chartColors.red,
+                    borderColor: window.chartColors.red,
+                    data: [
+                      0
+                    ],
+                    fill: false,
+                }, {
+                    label: "Etherium",
+                    fill: false,
+                    backgroundColor: window.chartColors.blue,
+                    borderColor: window.chartColors.blue,
+                    data: [
+                      0                 
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                title:{
+                    display:false,
+                    text:''
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'USD'
+                        }
+                    }]
+                }
+            }
+        };
+        window.myLine = null;
+    </script>
+  </body>
+</html>
